@@ -544,10 +544,7 @@ def dict_to_list(d):
     # make sure it's a dict, that way dict_to_list can be used as an
     # array_hook.
     d = dict(d)
-    try:
-        return [d[x] for x in xrange(len(d))]
-    except KeyError:
-        raise ValueError('dict is not a sequence')
+    return [d[x] for x in sorted(d.keys())]
 
 
 def dict_to_tuple(d):
